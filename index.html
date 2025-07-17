@@ -1,43 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hard Question</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Future Hacker | SYS</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    body {
+      margin: 0;
+      background: black;
+      color: #00ff99;
+      font-family: 'Share Tech Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      text-align: center;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99;
+      }
+      to {
+        text-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc;
+      }
+    }
+
+    .terminal {
+      background: rgba(0, 255, 153, 0.1);
+      border: 1px solid #00ff99;
+      padding: 20px;
+      width: 80%;
+      max-width: 700px;
+      box-shadow: 0 0 20px #00ff99;
+      border-radius: 10px;
+      margin-top: 40px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .cursor {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      opacity: 0.5;
+    }
+  </style>
 </head>
 <body>
-  <div class="airplaneAnimation">
-    <div class="plane">
-      <div class="main"></div>
-      <div class="wingOne"></div>
-      <div class="wingTwo"></div>
-    </div>
-    <div class="clouds">
-      <div class="cloud cloudOne"></div>
-      <div class="cloud cloudTwo"></div>
-      <div class="cloud cloudThree"></div>
-      <div class="cloud cloudFour"></div>
-      <div class="cloud cloudFive"></div>
-      <div class="cloud cloudSix"></div>
-      <div class="cloud cloudSeven"></div>
-      <div class="cloud cloudEight"></div>
-      <div class="cloud cloudNine"></div>
-    </div>
-    <div class="banner-container">
-        <i class="rope"></i>
-        <i class="banner">
-         will you be my girlfriend? 🥹
-        <i class="triangle"></i>
-    </i>
-    </div>
-  </div>
-  
-  <button id="themeToggle" class="theme-toggle">
-    <span class="icon sun">☀️</span>
-    <span class="icon moon">🌙</span>
-  </button>
+  <h1>👾 Hacker from the Future</h1>
+  <p>
+    Halo, saya <strong>Salsabila</strong>.<br>
+    Seorang pengembang, penjelajah sistem, dan pecinta AI.<br>
+    Misi saya: menguasai sistem, membangun alat pintar, dan menjelajah dunia digital masa depan.
+  </p>
 
-  <script src="script.js"></script>
+  <div class="terminal">
+    <code>
+      user@system:~$ <span id="typewriter"></span><span class="cursor">█</span>
+    </code>
+  </div>
+
+  <footer>
+    © 2025 | Built with ❤️ by SYS | <a href="https://github.com/yourusername" style="color:#00ff99;">GitHub</a>
+  </footer>
+
+  <script>
+    const text = "nmap -A smileyoursystem.site && ai-chat --pop-up && translate -api darkmode";
+    let i = 0;
+    const speed = 80;
+
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    window.onload = typeWriter;
+  </script>
 </body>
 </html>
